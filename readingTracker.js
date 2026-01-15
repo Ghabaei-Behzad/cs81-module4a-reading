@@ -26,10 +26,18 @@ function addReadBook(day, book, minutes) {
   readingLog.push(newEntry);
 }
 
-// Returns total minutes spent reading all week
+/**
+ * Summary: Iterations are through the log to calculate the sum of all reading time.
+ * Input: log (array of objects).
+ * Output: total (number) representing the total minutes.
+ * Returns total minutes spent reading all week
+ */
 function totalReadingMinutes(log) {
+  // 3. Initializes a counter to store the running sum.
   let total = 0;
+  // 4. A 'for...of' loop is used to visit every object inside the log array.
   for (let entry of log) {
+  // 5.  Access the 'minutes' property of the current object and adds it to total.
     total += entry.minutes;
   }
   return total;
