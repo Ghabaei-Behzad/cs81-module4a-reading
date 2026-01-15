@@ -3,6 +3,7 @@
  * Data Structure is an array of objects. Each object contains a string (day), a string (book title),
  * and a number (minutes).
  * new entries will be pushed to readingLog
+ * This is an important block of code because we are processing the const readingLog
  */
 
 const readingLog = [
@@ -14,7 +15,7 @@ const readingLog = [
 ];
 
 /**
- * Summary: Adds a new reading session object to the global readingLog array.
+ * Summary: Adds a new reading session object to the global readingLog array. (3.)
  * Input: day (string), book (string), minutes (number).
  * Output: There is no output (modifies the array in place).
  * entry to the log
@@ -27,7 +28,7 @@ function addReadBook(day, book, minutes) {
 }
 
 /**
- * Summary: Iterations are through the log to calculate the sum of all reading time.
+ * Summary: Iterations are through the log to calculate the sum of all reading time. (3.)
  * Input: log (array of objects).
  * Output: total (number) representing the total minutes.
  * Returns total minutes spent reading all week
@@ -35,7 +36,7 @@ function addReadBook(day, book, minutes) {
 function totalReadingMinutes(log) {
   // 3. Initializes a counter to store the running sum.
   let total = 0;
-  // 4. A 'for...of' loop is used to visit every object inside the log array.
+  // 4. A 'for...of' loop is used to visit every object inside the log array. (2.)
   for (let entry of log) {
   // 5.  Access the 'minutes' property of the current object and adds it to total.
     total += entry.minutes;
@@ -44,7 +45,7 @@ function totalReadingMinutes(log) {
 }
 
 /** 
- * Summary: Determines which book title appears most frequently in the log.
+ * Summary: Determines which book title appears most frequently in the log. (3.)
  * Input: log (array of objects).
  * Output: returns maxBook (string) representing the title of the most read book.
  * Returns the book read most frequently.
@@ -53,7 +54,7 @@ function mostReadBook(log) {
   // 6. We use an object as a 'frequency map' to count occurences of each book.
   const bookCounts = {};
   for (let entry of log) {
-  // 7. Logic check: If book isn't in the map, start at 1, otherwise increment.
+  // 7. Logic check: If book isn't in the map, start at 1, otherwise increment. (2.)
     if (!bookCounts[entry.book]) {
       bookCounts[entry.book] = 1;
     } else {
@@ -65,7 +66,7 @@ function mostReadBook(log) {
   let maxCount = 0;
   // 8. This 'for...in' loop iterates over the keys of the frequency map object.
   for (let book in bookCounts) {
-  // 9. Comparison: Updates maxBook if the current book's count is higher than the previous max.
+  // 9. Comparison: Updates maxBook if the current book's count is higher than the previous max. (2.)
     if (bookCounts[book] > maxCount) {
       maxBook = book;
       maxCount = bookCounts[book];
@@ -75,28 +76,28 @@ function mostReadBook(log) {
 }
 
 /**
- * Summary: Display a formatted daily breakdown of reading activity to the console.
+ * Summary: Display a formatted daily breakdown of reading activity to the console.(3.)
  * Input: Log (array of objects).
  * Output: Logged strings to the console. day of week:  number of minutes:  - a book such as: Dune, 1984, The Hobbit
- * Prints a summary of minutes read per day
+ * Prints a summary of minutes read per day. This is an important line of code because it prints the results to the console.
  */
 function printDailySummary(log) {
-  // 10. Uses Template literals (backticks) to inject object properties directly into a string.
+  // 10. Uses Template literals (backticks) to inject object properties directly into a string. (2.)
   for (let entry of log) {
     console.log(`${entry.day}: ${entry.minutes} mins reading "${entry.book}"`);
   }
 }
 /**
- * Improvement suggestions:
+ * Improvement suggestions: (4.)
  * Instead of relying on a global variable 'readinglog' inside 'addReadBook' the function
- * should accept the array as a parameter. This makes the function reusable.
- * for different Logs (studentA_Log vs studentB_Log)
- * Example usage
+ * should accept the array as a parameter. This makes the function reusable
+ * for different Logs (studentA_Log vs. studentB_Log)
+ * Example usage of test case is below.
  */
 
 // Test Cases
 addReadBook("Saturday", "Dune", 50);
-// This is an added new test case.
+// This is an added new test case. (5.)
 addReadBook("Sunday", "The Hobbit", 60); 
 
 printDailySummary(readingLog);
