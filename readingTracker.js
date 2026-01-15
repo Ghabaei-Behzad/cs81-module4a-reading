@@ -15,7 +15,7 @@ const readingLog = [
 
 /**
  * Summary: Adds a new reading session object to the global readingLog array.
- * Inputs: day (string), book (string), minutes (number).
+ * Input: day (string), book (string), minutes (number).
  * Output: There is no output (modifies the array in place).
  * entry to the log
  */
@@ -74,8 +74,14 @@ function mostReadBook(log) {
   return maxBook;
 }
 
-// Prints a summary of minutes read per day
+/**
+ * Summary: Display a formatted daily breakdown of reading activity to the console.
+ * Input: Log (array of objects).
+ * Output: Logged strings to the console. day of week:  number of minutes:  - a book such as: Dune, 1984, The Hobbit
+ * Prints a summary of minutes read per day
+ */
 function printDailySummary(log) {
+  // 10. Uses Template literals (backticks) to inject object properties directly into a string.
   for (let entry of log) {
     console.log(`${entry.day}: ${entry.minutes} mins reading "${entry.book}"`);
   }
