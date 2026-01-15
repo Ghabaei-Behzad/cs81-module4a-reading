@@ -1,3 +1,6 @@
+//Behzad Ghabaei
+//cs81
+//assignment 4a
 # Reflection
 
 # What was the most helpful aspect of this code's structure?
