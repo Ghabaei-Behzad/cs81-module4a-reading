@@ -86,9 +86,19 @@ function printDailySummary(log) {
     console.log(`${entry.day}: ${entry.minutes} mins reading "${entry.book}"`);
   }
 }
+/**
+ * Improvement suggestions:
+ * Instead of relying on a global variable 'readinglog' inside 'addReadBook' the function
+ * should accept the array as a parameter. This makes the function reusable.
+ * for different Logs (studentA_Log vs studentB_Log)
+ * Example usage
+ */
 
-// Example usage
+// Test Cases
 addReadBook("Saturday", "Dune", 50);
+// This is an added new test case.
+addReadBook("Sunday", "The Hobbit", 60); 
+
 printDailySummary(readingLog);
 console.log("Total minutes read:", totalReadingMinutes(readingLog));
 console.log("Most read book:", mostReadBook(readingLog));
