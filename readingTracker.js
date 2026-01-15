@@ -2,6 +2,7 @@
  * Weekly reading log and tracker--
  * Data Structure is an array of objects. Each object contains a string (day), a string (book title),
  * and a number (minutes).
+ * new entries will be pushed to readingLog
  */
 
 const readingLog = [
@@ -12,9 +13,16 @@ const readingLog = [
   { day: "Friday", book: "1984", minutes: 15 }
 ];
 
-// Adds a new reading entry to the log
+/**
+ * Summary: Adds a new reading session object to the global readingLog array.
+ * Inputs: day (string), book (string), minutes (number).
+ * Output: There is no output (modifies the array in place).
+ * entry to the log
+ */
 function addReadBook(day, book, minutes) {
+  // 1. Creates a new object literal using the parameters provided to the function
   const newEntry = { day, book, minutes };
+  // 2. Uses the .push() method to append the new session to the end of the data array.
   readingLog.push(newEntry);
 }
 
