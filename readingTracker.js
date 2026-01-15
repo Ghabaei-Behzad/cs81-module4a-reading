@@ -43,10 +43,17 @@ function totalReadingMinutes(log) {
   return total;
 }
 
-// Returns the book read most frequently
+/** 
+ * Summary: Determines which book title appears most frequently in the log.
+ * Input: log (array of objects).
+ * Output: returns maxBook (string) representing the title of the most read book.
+ * Returns the book read most frequently.
+*/
 function mostReadBook(log) {
+  // 6. We use an object as a 'frequency map' to count occurences of each book.
   const bookCounts = {};
   for (let entry of log) {
+  // 7. Logic check: If book isn't in the map, start at 1, otherwise increment.
     if (!bookCounts[entry.book]) {
       bookCounts[entry.book] = 1;
     } else {
@@ -56,7 +63,9 @@ function mostReadBook(log) {
 
   let maxBook = null;
   let maxCount = 0;
+  // 8. This 'for...in' loop iterates over the keys of the frequency map object.
   for (let book in bookCounts) {
+  // 9. Comparison: Updates maxBook if the current book's count is higher than the previous max.
     if (bookCounts[book] > maxCount) {
       maxBook = book;
       maxCount = bookCounts[book];
